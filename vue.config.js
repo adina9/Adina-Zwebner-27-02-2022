@@ -1,5 +1,6 @@
 module.exports = {
   transpileDependencies: [
-    'vuetify'
-  ]
+    'vuetify',
+  ],
+  publicPath:'/adina-awebner-27-02-2022/'
 }

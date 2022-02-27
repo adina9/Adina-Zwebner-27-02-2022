@@ -2,7 +2,7 @@
   "name": "Malam-Weather",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://adina9.github.io/Adina-Zwebner-27-02-2022",
+  "homepage": "https://adina9.github.io/adina-zwebner-27-02-2022",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
