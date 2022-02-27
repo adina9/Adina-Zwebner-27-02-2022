@@ -13,7 +13,7 @@ const KEY = 'cityDB'
 const KEY_FAV = 'favoritesDB'
 const KEY_WEATHER = 'WeatherDaysDB'
 
-const API_KEY = '8STSWKSldaD2BQmXrmqAFgafgd2kb5C5'
+const API_KEY = 'irczAm9Av5grhpy02wu5kRGggNxIedw1'
 
 export const cityService = {
     query,
@@ -97,7 +97,7 @@ async function _fetchChosenCity(cityKey) {
     try {
         const weatherDays = storageService.load(KEY_WEATHER) || []
         if (!weatherDays.length || _cityIndex(weatherDays, cityKey) < 0) {
-            const url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&details=true`
+            const url = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&details=true`
             const res = await axios.get(url)
             weatherDays.push([...res.data.DailyForecasts])
             _saveToStorage(KEY_WEATHER, weatherDays)
@@ -114,7 +114,7 @@ async function _fetchUserCity() {
 
     const _success = async (pos) => {
         const { latitude, longitude } = pos.coords;
-        const res = await axios.get(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${latitude},${longitude}&language=en`)
+        const res = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${latitude},${longitude}&language=en`)
         const city = res.data
         const days = await _fetchChosenCity(city.Key)
         gDays = days
